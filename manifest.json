@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "my-extension-app",
+    "description": "my-extension-app",
+    "version": "1.0",
+    "action": {
+        "default_title": "Click to view a popup"
+    },
+    "background": {
+        "service_worker": "background_bundle.js",
+        "type": "module"
+    }
+}
