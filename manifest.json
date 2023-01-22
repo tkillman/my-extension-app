@@ -9,5 +9,12 @@
     "background": {
         "service_worker": "background_bundle.js",
         "type": "module"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://developer.chrome.com/docs/extensions/mv3/*"],
+            "js": ["content_bundle.js"]
+        }
+    ],
+    "permissions": ["storage", "tabs"]
 }

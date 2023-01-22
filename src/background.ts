@@ -25,3 +25,20 @@ chrome.action.onClicked.addListener(async () => {
         await createWindow();
     }
 });
+
+chrome.runtime.onConnect.addListener((port) => {
+    port.onMessage.addListener(async (msg) => {
+        console.log('post send : ', msg, chrome);
+
+        const result = await chrome.storage.sync.get('loginId');
+        console.log('result', result);
+
+        if (result && result.loginId) {
+            console.log('store status');
+            port.postMessage('store status');
+        } else {
+            console.log('logout status');
+            port.postMessage('logout status');
+        }
+    });
+});
